@@ -1,13 +1,21 @@
+import React, {useState} from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View , Dimensions} from 'react-native';
+import Car from './Components/Car'
 
 export default function App() {
+
+  const screenWidth = Dimensions.get("screen").width
+  const screenHeight = Dimensions.get("screen").height
+  const carLeft = screenWidth/2
+  const [carBottom, setCarBottom] = useState(screenHeight/2) 
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Car/>
       <StatusBar style="auto" />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -17,4 +25,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+})
